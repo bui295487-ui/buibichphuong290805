@@ -1,90 +1,31 @@
-:root {
-    --primary-color: #1a252f;
-    --accent-color: #2980b9;
-    --bg-color: #ffffff;
-    --bg-light: #f4f7f6;
-    --text-color: #333;
-    --card-bg: #ffffff;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Hiệu ứng cuộn mượt (Smooth Scroll)
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    // 2. Hiệu ứng Fade-in khi cuộn trang (Intersection Observer)
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 }); // Kích hoạt khi thấy 10% nội dung
 
-body { color: var(--text-color); line-height: 1.6; }
-
-/* Header */
-header {
-    background-color: var(--bg-color);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: fixed; width: 100%; top: 0; z-index: 1000;
-}
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; max-width: 1200px; margin: 0 auto;
-}
-.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { text-decoration: none; color: var(--primary-color); font-weight: 600; transition: color 0.3s; }
-.nav-links a:hover { color: var(--accent-color); }
-
-/* Hero Section (About) */
-.hero-section {
-    padding: 120px 20px 60px;
-    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-    text-align: center;
-}
-.hero-container { max-width: 800px; margin: 0 auto; }
-.profile-img {
-    width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
-    border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px;
-}
-.hero-container h1 { font-size: 2.8rem; color: var(--primary-color); margin-bottom: 10px; }
-.tagline { font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin-bottom: 20px; }
-.bio { font-size: 1.1rem; margin-bottom: 20px; color: #444; }
-.contact-info { font-weight: 600; background: #fff; display: inline-block; padding: 10px 20px; border-radius: 30px; }
-
-/* Sections & Grid */
-.section { padding: 80px 5%; }
-.bg-light { background-color: var(--bg-light); }
-.container { max-width: 1200px; margin: 0 auto; }
-h2 { text-align: center; font-size: 2.2rem; color: var(--primary-color); margin-bottom: 40px; position: relative; }
-h2::after { content: ''; width: 60px; height: 3px; background: var(--accent-color); display: block; margin: 10px auto 0; }
-
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-/* Thẻ (Card) Style */
-.card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-.card-img {
-    width: 100%;
-    height: 200px; /* Cố định chiều cao ảnh */
-    object-fit: cover; /* Cắt gọn ảnh cho vừa khung */
-    border-bottom: 1px solid #eee;
-}
-.card-content { padding: 25px; }
-.card-content h3 { color: var(--primary-color); margin-bottom: 5px; font-size: 1.3rem; }
-.subtitle { color: var(--accent-color); font-size: 0.95rem; font-weight: 600; margin-bottom: 15px; }
-.card-list { list-style-type: disc; padding-left: 20px; margin-top: 10px; color: #555; }
-.card-list li { margin-bottom: 8px; }
-
-/* Footer */
-footer { text-align: center; padding: 25px; background-color: var(--primary-color); color: #fff; }
-
-/* Animation Classes */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-/* Mobile */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-container h1 { font-size: 2.2rem; }
-}
+    reveals.forEach(reveal => {
+        observer.observe(reveal);
+    });
+});
