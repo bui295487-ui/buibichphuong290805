@@ -8,147 +8,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">BBP.</a></div>
-            <ul class="nav-links">
-                <li><a href="index.html#about">Về tôi</a></li>
-                <li><a href="education.html#education">Học vấn</a></li>
-                <li><a href="experience.html">Kinh nghiệm</a></li>
-                <li><a href="extracurricular.html#extracurricular">Ngoại khóa</a></li>
-                <li><a href="projects.html#projects">Dự án</a></li>
-            </ul>
-        </nav>    
-    </header>
 
-    <section id="about" class="hero-section reveal">
-        <div class="hero-container">
-            <img src="buibichphuong" alt="Bùi Bích Phương" class="profile-img">
+    <div class="main-dashboard">
+        <header class="intro-card">
+            <img src="buibichphuong.jpg" alt="Bùi Bích Phương" class="profile-img">
             <h1>Bùi Bích Phương</h1>
-            <p class="tagline">Sinh viên Kinh doanh quốc tế | Trường Đại học Ngoại Thương</p>
-            <p class="bio">
-                Tôi đam mê việc kết nối tư duy kinh doanh chiến lược với sức mạnh của công nghệ và dữ liệu. 
-                Với sự cẩn trọng và tinh thần ham học hỏi, tôi tập trung phát triển kỹ năng Phân tích dữ liệu, 
-                Tối ưu hóa công cụ tìm kiếm (SEO) và xây dựng nội dung đa nền tảng để đưa ra các quyết định kinh doanh hiệu quả.
-            </p>
-            <div class="contact-info">
-                <span>TOEIC: 840</span> | <span>Tiếng Trung: HSK2</span>
-            </div>
+            <p>Kinh doanh quốc tế | FTU</p>
+            <div class="quick-info">TOEIC 840 • HSK2 • SEO • Data Analysis</div>
+        </header>
+
+        <div class="slide-grid">
+            <a href="experience.html" class="slide-item item-exp">
+                <div class="overlay">
+                    <h2>Kinh Nghiệm</h2>
+                    <span class="btn-more">Xem chi tiết →</span>
+                </div>
+            </a>
+
+            <a href="projects.html" class="slide-item item-proj">
+                <div class="overlay">
+                    <h2>Dự Án</h2>
+                    <span class="btn-more">Xem chi tiết →</span>
+                </div>
+            </a>
+
+            <a href="extracurricular.html" class="slide-item item-extra">
+                <div class="overlay">
+                    <h2>Hoạt động ngoại Khóa</h2>
+                    <span class="btn-more">Xem chi tiết →</span>
+                </div>
+            </a>
+
+            <a href="certificates.html" class="slide-item item-cert">
+                <div class="overlay">
+                    <h2>Chứng Chỉ</h2>
+                    <span class="btn-more">Xem chi tiết →</span>
+                </div>
+            </a>
         </div>
-    </section>
+    </div>
 
-    <section id="education" class="section bg-light reveal">
-        <div class="container">
-            <h2>Học Vấn & Kỹ Năng</h2>
-            <div class="grid-layout">
-                <div class="card">
-                    <img src="ftu.jpg" alt="Trường Đại học Ngoại Thương" class="card-img">
-                    <div class="card-content">
-                        <h3>Đại học Ngoại Thương (FTU)</h3>
-                        <p class="subtitle">Chuyên ngành: Kinh doanh quốc tế</p>
-                        <ul class="card-list">
-                            <li>Tập trung vào các học phần phân tích tài chính, quản trị rủi ro và chiến lược kinh doanh.</li>
-                            <li>Định hướng ứng dụng dữ liệu vào giải quyết các bài toán doanh nghiệp thực tế.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="tech-skills.jpg" alt="Kỹ năng công nghệ" class="card-img">
-                    <div class="card-content">
-                        <h3>Kỹ Năng Chuyên Môn</h3>
-                        <ul class="card-list">
-                            <li><strong>Phân tích dữ liệu:</strong> Python (Pandas), SQL/PostgreSQL, thiết kế cơ sở dữ liệu (ERD).</li>
-                            <li><strong>Marketing:</strong> Viết bài chuẩn SEO, quản trị Fanpage, xây dựng kịch bản video/Reels.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section reveal">
-        <div class="container">
-            <h2>Kinh Nghiệm Thực Tế</h2>
-            <div class="grid-layout">
-                <div class="card">
-                    <img src="content-finance.jpg" alt="Content Creator" class="card-img">
-                    <div class="card-content">
-                        <h3>Thực tập sinh Digital Marketing</h3>
-                        <p class="subtitle">Công ty cổ phần giao dịch hàng hóa Thành phố Hồ Chí Minh </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="85artflorist.jpg" alt="85artflorist" class="card-img">
-                    <div class="card-content">
-                        <h3>Vận hành Kinh doanh</h3>
-                        <p class="subtitle">85artflorist</p>               
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="kasaco.jpg" alt="Kasaco" class="card-img">
-                    <div class="card-content">
-                        <h3>Chăm sóc Khách hàng</h3>
-                        <p class="subtitle">Công ty Kasaco</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="extracurricular" class="section bg-light reveal">
-        <div class="container">
-            <h2>Hoạt Động Khác</h2>
-            <div class="grid-layout">
-                <div class="card">
-                    <img src="hobbies.jpg" alt="Sở thích" class="card-img">
-                    <div class="card-content">
-                        <h3>Phát triển Cá nhân</h3>
-                        <p>Bên cạnh công việc và học tập, tôi dành thời gian nghiên cứu Tarot. Việc thực hành đọc Tarot giúp tôi rèn luyện khả năng lắng nghe sâu, phân tích tâm lý, rèn luyện trực giác và cải thiện kỹ năng giao tiếp, tư vấn với mọi người xung quanh.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section reveal">
-        <div class="container">
-            <h2>Dự Án Tiêu Biểu</h2>
-            <div class="grid-layout">
-                <div class="card">
-                    <img src="traphaco-project.jpg" alt="Dự án Traphaco" class="card-img">
-                    <div class="card-content">
-                        <h3>Phân tích Chiến lược Sản phẩm Traphaco</h3>
-                        <p class="subtitle">Nghiên cứu thị trường</p>
-                        <p><strong>Nội dung:</strong> Đánh giá chiến lược định vị và phát triển các dòng sản phẩm chung của Traphaco trên thị trường.</p>
-                        <p><strong>Kết quả:</strong> Chỉ ra điểm mạnh, điểm yếu, và đề xuất hướng tiếp cận để gia tăng nhận diện thương hiệu.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="nvda-chart.jpg" alt="Dự án NVDA" class="card-img">
-                    <div class="card-content">
-                        <h3>Phân tích Time Series: Cổ phiếu NVDA</h3>
-                        <p class="subtitle">Học phần Time Series</p>
-                        <p><strong>Nội dung:</strong> Thu thập dữ liệu lịch sử giá cổ phiếu NVIDIA để phân tích xu hướng.</p>
-                        <p><strong>Kết quả:</strong> Ứng dụng thành công các kỹ thuật xử lý dữ liệu và hiện tượng Volatility Clustering để nhận diện các cụm biến động mạnh của thị trường.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="somnia-pillow.jpg" alt="Dự án SOMNIA" class="card-img">
-                    <div class="card-content">
-                        <h3>Kế hoạch Kinh doanh: SOMNIA Smart Pillow</h3>
-                        <p class="subtitle">Đề án Khởi nghiệp</p>
-                        <p><strong>Nội dung:</strong> Lập kế hoạch kinh doanh toàn diện cho sản phẩm gối thông minh SOMNIA.</p>
-                        <p><strong>Kết quả:</strong> Xây dựng mô hình chấm điểm (Scoring model), thiết lập ma trận phân tích rủi ro và đánh giá SWOT chi tiết cho dự án.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Bùi Bích Phương. Thiết kế tối ưu hiển thị đa thiết bị.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
