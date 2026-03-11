@@ -1,101 +1,134 @@
+/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: #1a1a1a; /* Nền tối sang trọng */
-    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a; /* Nền đen thiên xanh thẫm */
+    color: #cbd5e1; /* Màu chữ xám nhạt */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
-.main-dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/* Typography & Colors */
+h1, h2, h3 { color: #f8fafc; }
+.subtitle { color: #38bdf8; font-size: 1.1rem; font-weight: 400; margin-bottom: 20px; }
+.accent-color { color: #38bdf8; }
 
-/* Phần giới thiệu đầu trang */
-.intro-card {
+/* Hero Section */
+.hero {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
-.profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #007bff;
+.profile-wrapper {
     margin-bottom: 20px;
 }
 
-.quick-info {
-    color: #888;
-    margin-top: 10px;
-    letter-spacing: 1px;
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
 }
 
-/* Lưới các Slide (Dashboard) */
-.slide-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 cột */
-    gap: 20px;
+.bio {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #94a3b8;
 }
 
-.slide-item {
-    position: relative;
-    height: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.4s ease;
+/* Navigation Cards */
+.navigation-cards {
     display: flex;
-    align-items: flex-end;
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Ảnh nền giả lập cho từng thẻ (Bạn có thể thay bằng img thật) */
-.item-exp { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('exp-bg.jpg') center/cover; }
-.item-proj { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('proj-bg.jpg') center/cover; }
-.item-extra { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('extra-bg.jpg') center/cover; }
-.item-cert { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('cert-bg.jpg') center/cover; }
-
-.overlay {
+.card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
     padding: 30px;
-    width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    width: 45%;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
 }
 
-.slide-item h2 {
-    font-size: 1.8rem;
+.card h3 {
     margin-bottom: 10px;
+    color: #38bdf8;
 }
 
-.slide-item p {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-bottom: 15px;
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.1);
+    background: #223147;
 }
 
-.btn-more {
-    font-weight: 600;
-    color: #007bff;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+/* Sub-pages Styles */
+.back-btn {
+    display: inline-block;
+    color: #38bdf8;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: color 0.3s ease;
 }
 
-/* Hiệu ứng Hover */
-.slide-item:hover {
-    transform: scale(1.02);
+.back-btn:hover { color: #7dd3fc; }
+
+.page-title { margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 15px; }
+
+/* Timeline for Experience */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.slide-item:hover .overlay {
-    background: rgba(0, 123, 255, 0.2); /* Đổi màu nhẹ khi di chuột */
-    backdrop-filter: blur(5px);
+.timeline-item {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #38bdf8;
 }
 
-/* Responsive cho điện thoại */
-@media (max-width: 768px) {
-    .slide-grid { grid-template-columns: 1fr; }
+.timeline-item h3 { margin-bottom: 5px; }
+.company { color: #94a3b8; font-weight: 400; margin-bottom: 15px; font-style: italic; }
+.tasks { padding-left: 20px; }
+.tasks li { margin-bottom: 8px; }
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navigation-cards { flex-direction: column; }
+    .card { width: 100%; }
 }
