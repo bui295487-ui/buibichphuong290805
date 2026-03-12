@@ -80,6 +80,7 @@ h1 {
     margin: 0 auto;
     text-align: center;
 }
+
 .nav-section-header {
     text-align: center; /* Lệnh này giúp căn giữa nội dung */
     display: flex; /* Dùng thêm flex để đảm bảo căn giữa tuyệt đối */
@@ -142,14 +143,12 @@ h1 {
     line-height: 1.4;
 }
 
-/* Navigation Cards (Chuẩn format có viền đứt nét ở trên) */
+/* Navigation Cards (Đã cập nhật chia làm 3 cột, xóa viền thừa) */
 .navigation-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 2rem;
-    border-top: 2px dashed var(--color-cherry-pink); /* Đường viền đứt nét phân cách */
-    padding-top: 2.5rem;
+    grid-template-columns: repeat(3, 1fr); /* ĐỔI TỪ 2 THÀNH 3 CỘT */
+    gap: 20px; /* Thu nhỏ khoảng cách xíu để 3 thẻ vừa vặn */
+    margin-top: 1.5rem; 
 }
 
 .card {
@@ -184,6 +183,9 @@ h1 {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 cột trên iPad */
     }
+    .navigation-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột Navigation trên iPad */
+    }
 }
 
 @media (max-width: 600px) {
@@ -201,6 +203,7 @@ h1 {
 
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; } /* Thêm delay cho box Chứng chỉ */
 
 @keyframes fadeIn {
     to {
