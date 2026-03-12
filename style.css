@@ -1,4 +1,18 @@
-/* Reset & Base Styles */
+/* Toàn bộ CSS cho giao diện tông màu Pastel & Nền Cute */
+:root {
+    /* Bảng màu từ ảnh của bạn */
+    --color-alabaster: #EEEFE8;        /* Trắng kem sữa */
+    --color-columbia-blue: #C9D2E2;    /* Xanh dương nhạt */
+    --color-cherry-pink: #E9ACBB;      /* Hồng hoa anh đào */
+    --color-cambridge-blue: #8FBC93;   /* Xanh lá nhạt */
+    --color-peach: #FCEBBF;            /* Vàng đào */
+    
+    /* Màu chữ (đã làm đậm hơn chút để dễ đọc trên nền sáng) */
+    --color-text-title: #A3546B;       /* Hồng sậm cho tiêu đề */
+    --color-text-body: #5C4A4D;        /* Nâu xám đen cho nội dung */
+    --color-white: #FFFFFF;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,238 +21,182 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0f172a; /* Nền đen thiên xanh thẫm */
-    color: #cbd5e1; /* Màu chữ xám nhạt */
+    /* Cài đặt ảnh nền cute */
+    background-color: #FFF5F7; 
+    background-image: url('../bg-cute.jpg'); /* Đảm bảo tên file ảnh khớp với file bạn đã lưu */
+    background-repeat: repeat; /* Lặp lại họa tiết */
+    background-size: 350px; /* Chỉnh độ lớn của họa tiết nền (có thể tăng giảm tùy ý) */
+    background-attachment: fixed;
+    color: var(--color-text-body);
     line-height: 1.6;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
+/* Container chính bao bọc toàn bộ trang */
+.page-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    /* Dùng màu Alabaster làm nền mờ cho khối nội dung chính */
+    background-color: rgba(238, 239, 232, 0.95); 
+    border-radius: 25px;
+    border: 3px dashed var(--color-cherry-pink); /* Viền đứt nét cute */
+    box-shadow: 0 15px 40px rgba(233, 172, 187, 0.2);
 }
 
-/* Typography & Colors */
-h1, h2, h3 { color: #f8fafc; }
-.subtitle { color: #38bdf8; font-size: 1.1rem; font-weight: 400; margin-bottom: 20px; }
-.accent-color { color: #38bdf8; }
-
-/* Hero Section */
+/* Hero (Phần đầu) */
 .hero {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 3rem;
 }
 
 .profile-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .profile-img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #38bdf8;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    border: 5px solid var(--color-white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--color-text-title);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #6D8B74; /* Một chút màu xanh đậm cho chức danh */
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .bio {
-    max-width: 600px;
-    margin: 0 auto;
     font-size: 1rem;
-    color: #94a3b8;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    text-align: justify;
 }
 
 /* Skills Section */
 .skills-section {
-    margin-bottom: 60px;
+    margin: 3rem 0;
 }
 
-.skills-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+.section-title {
     text-align: center;
-    color: #f8fafc;
+    color: var(--color-text-title);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
 }
 
-.skills-grid {
+/* Lưới Kỹ Năng 2x2 */
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 }
 
+/* Cài đặt chung cho thẻ kỹ năng */
 .skill-card {
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.skill-card:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.1);
-    transform: translateY(-4px);
-}
-
-.skill-header {
-    background: linear-gradient(135deg, #1e293b 0%, #223147 100%);
-    padding: 20px;
-    border-bottom: 2px solid #38bdf8;
-}
-
-.skill-header h4 {
-    color: #38bdf8;
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-.skill-content {
-    padding: 20px;
-}
-
-.skill-content p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Navigation Cards */
-.navigation-cards {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.card {
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 30px;
-    width: 45%;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    color: #38bdf8;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #38bdf8;
-    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.1);
-    background: #223147;
-}
-
-/* Sub-pages Styles */
-.back-btn {
-    display: inline-block;
-    color: #38bdf8;
-    text-decoration: none;
-    margin-bottom: 30px;
-    transition: color 0.3s ease;
-}
-
-.back-btn:hover { color: #7dd3fc; }
-
-.page-title { margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 15px; }
-
-/* Timeline for Experience */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.timeline-item {
-    background: #1e293b;
     padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #38bdf8;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-timeline-item h3 { margin-bottom: 5px; }
-.company { color: #94a3b8; font-weight: 400; margin-bottom: 15px; font-style: italic; }
-.tasks { padding-left: 20px; }
-.tasks li { margin-bottom: 8px; }
-
-/* Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-delay-1 { transition-delay: 0.2s; }
-delay-2 { transition-delay: 0.4s; }
-
-/* Responsive */
-@media (max-width: 600px) {
-    .navigation-cards { flex-direction: column; }
-    .card { width: 100%; }
-    .skills-grid { grid-template-columns: 1fr; }
-}
-/* CSS cho phần Kỹ năng */
-.skills-section {
-    margin: 3rem 0; /* Tăng khoảng cách trên và dưới của toàn bộ khu vực */
-}
-
-.skills-section h3 {
-    margin-bottom: 2rem; /* Khoảng cách từ tiêu đề xuống các khung */
-    font-size: 1.5rem;
-}
-
-/* Tạo lưới để chứa 4 khung */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột ngang nhau */
-    gap: 1.5rem; /* Tăng khoảng cách (khe hở) giữa các khung */
-}
-
-/* Thiết kế cho từng khung kỹ năng */
-.skill-card {
-    background-color: rgba(255, 255, 255, 0.05); /* Màu nền khung hơi trong suốt để nổi bật trên nền tối */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Viền mờ tinh tế */
-    border-radius: 12px; /* Bo góc giống với các nút bên dưới */
-    padding: 1.5rem; /* Tăng khoảng cách từ chữ ra viền khung */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-/* Hiệu ứng khi di chuột vào khung */
 .skill-card:hover {
     transform: translateY(-5px);
-    background-color: rgba(255, 255, 255, 0.08); /* Khung sáng lên một chút */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* Tiêu đề của từng kỹ năng */
-.skill-card h4 {
-    color: #60a5fa; /* Màu xanh nhạt (bạn có thể đổi mã màu cho khớp với chữ Kinh nghiệm/Dự án) */
+/* Áp dụng 4 màu của bảng màu cho 4 thẻ khác nhau */
+.skill-card:nth-child(1) { background-color: var(--color-columbia-blue); }
+.skill-card:nth-child(2) { background-color: var(--color-cherry-pink); }
+.skill-card:nth-child(3) { background-color: var(--color-cambridge-blue); }
+.skill-card:nth-child(4) { background-color: var(--color-peach); }
+
+.skill-card h2 {
     margin-top: 0;
-    margin-bottom: 0.75rem;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
+    color: var(--color-text-body);
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
 .skill-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
     margin: 0;
-    opacity: 0.9; /* Làm chữ dịu đi một chút so với nền tối */
+    font-size: 1rem;
+    color: var(--color-text-body);
+    opacity: 0.9;
 }
 
-/* Responsive: Thu về 1 cột khi xem trên điện thoại */
+/* Navigation Cards (Kinh nghiệm & Dự án) */
+.navigation-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 3rem;
+    border-top: 3px dashed var(--color-cherry-pink);
+    padding-top: 3rem;
+}
+
+.nav-card {
+    display: block;
+    text-decoration: none;
+    background-color: var(--color-white);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid var(--color-cherry-pink);
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--color-cherry-pink);
+}
+
+.nav-card:hover h3, .nav-card:hover p {
+    color: var(--color-white);
+}
+
+.nav-card h3 {
+    color: var(--color-text-title);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-card p {
+    color: var(--color-text-body);
+    transition: color 0.3s ease;
+}
+
+/* Responsive cho điện thoại */
 @media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: 1fr; /* Màn hình nhỏ thì chỉ hiển thị 1 cột */
+    .grid-container, .navigation-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations cơ bản */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
