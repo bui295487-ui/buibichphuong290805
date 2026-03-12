@@ -1,15 +1,12 @@
-/* Toàn bộ CSS cho giao diện tông màu Pastel & Nền Cute */
+/* Bảng màu Pastel Cute */
 :root {
-    /* Bảng màu từ ảnh của bạn */
-    --color-alabaster: #EEEFE8;        /* Trắng kem sữa */
-    --color-columbia-blue: #C9D2E2;    /* Xanh dương nhạt */
-    --color-cherry-pink: #E9ACBB;      /* Hồng hoa anh đào */
-    --color-cambridge-blue: #8FBC93;   /* Xanh lá nhạt */
-    --color-peach: #FCEBBF;            /* Vàng đào */
-    
-    /* Màu chữ (đã làm đậm hơn chút để dễ đọc trên nền sáng) */
-    --color-text-title: #A3546B;       /* Hồng sậm cho tiêu đề */
-    --color-text-body: #5C4A4D;        /* Nâu xám đen cho nội dung */
+    --color-alabaster: #EEEFE8;        
+    --color-columbia-blue: #C9D2E2;    
+    --color-cherry-pink: #E9ACBB;      
+    --color-cambridge-blue: #8FBC93;   
+    --color-peach: #FCEBBF;            
+    --color-text-title: #A3546B;       
+    --color-text-body: #5C4A4D;        
     --color-white: #FFFFFF;
 }
 
@@ -21,173 +18,168 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    /* Cài đặt ảnh nền cute */
     background-color: #FFF5F7; 
-    background-image: url('anh.jpg'); /* Đảm bảo tên file ảnh khớp với file bạn đã lưu */
-    background-repeat: repeat; /* Lặp lại họa tiết */
-    background-size: 350px; /* Chỉnh độ lớn của họa tiết nền (có thể tăng giảm tùy ý) */
+    background-image: url('anh.jpg'); /* Nhớ đảm bảo tên ảnh nền đúng nhé */
+    background-repeat: repeat;
+    background-size: 350px;
     background-attachment: fixed;
     color: var(--color-text-body);
     line-height: 1.6;
 }
 
-/* Container chính bao bọc toàn bộ trang */
 .page-container {
-    max-width: 900px;
+    max-width: 950px; /* Mở rộng xíu để chứa 4 cột ngang cho đẹp */
     margin: 50px auto;
     padding: 40px;
-    /* Dùng màu Alabaster làm nền mờ cho khối nội dung chính */
     background-color: rgba(238, 239, 232, 0.95); 
     border-radius: 25px;
-    border: 3px dashed var(--color-cherry-pink); /* Viền đứt nét cute */
+    border: 3px dashed var(--color-cherry-pink); 
     box-shadow: 0 15px 40px rgba(233, 172, 187, 0.2);
 }
 
-/* Hero (Phần đầu) */
+/* Header & Typography */
 .hero {
     text-align: center;
-    margin-bottom: 3rem;
-}
-
-.profile-wrapper {
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--color-white);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--color-text-title);
+    margin-bottom: 0.3rem;
+}
+
+/* Style cho Tiêu đề mới gợi ý */
+.main-tagline {
+    font-size: 1.3rem;
+    color: var(--color-cambridge-blue);
+    font-weight: 800;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    color: #6D8B74; /* Một chút màu xanh đậm cho chức danh */
+    font-size: 1rem;
+    color: #6D8B74; 
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .bio {
-    font-size: 1rem;
+    font-size: 0.95rem;
     max-width: 700px;
-    margin: 0 auto 2rem;
-    text-align: justify;
-}
-
-/* Skills Section */
-.skills-section {
-    margin: 3rem 0;
-}
-
-.section-title {
+    margin: 0 auto;
     text-align: center;
-    color: var(--color-text-title);
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
 }
 
-/* Lưới Kỹ Năng 2x2 */
-.grid-container {
+/* Bố cục 4 cột ngang cho Kỹ Năng */
+.skills-container {
+    margin: 2rem 0;
+}
+
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr); /* CHIA LÀM 4 CỘT NGANG */
+    gap: 15px; /* Khoảng cách giữa các cột thu hẹp lại */
 }
 
-/* Cài đặt chung cho thẻ kỹ năng */
-.skill-card {
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Thu nhỏ size của thẻ kỹ năng */
+.skill-item {
+    padding: 15px; /* Giảm khoảng trống bên trong */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+.skill-item:hover {
+    transform: translateY(-3px);
 }
 
-/* Áp dụng 4 màu của bảng màu cho 4 thẻ khác nhau */
-.skill-card:nth-child(1) { background-color: var(--color-columbia-blue); }
-.skill-card:nth-child(2) { background-color: var(--color-cherry-pink); }
-.skill-card:nth-child(3) { background-color: var(--color-cambridge-blue); }
-.skill-card:nth-child(4) { background-color: var(--color-peach); }
+/* Áp dụng 4 màu pastel */
+.skill-item:nth-child(1) { background-color: var(--color-columbia-blue); }
+.skill-item:nth-child(2) { background-color: var(--color-cherry-pink); }
+.skill-item:nth-child(3) { background-color: var(--color-cambridge-blue); }
+.skill-item:nth-child(4) { background-color: var(--color-peach); }
 
-.skill-card h2 {
+.skill-name {
     margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 1.05rem; /* Thu nhỏ tiêu đề */
     color: var(--color-text-body);
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.skill-card p {
+.skill-desc {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.85rem; /* Thu nhỏ phần mô tả */
     color: var(--color-text-body);
     opacity: 0.9;
+    line-height: 1.4;
 }
 
-/* Navigation Cards (Kinh nghiệm & Dự án) */
+/* Navigation Cards (Chuẩn format có viền đứt nét ở trên) */
 .navigation-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    margin-top: 3rem;
-    border-top: 3px dashed var(--color-cherry-pink);
-    padding-top: 3rem;
+    margin-top: 2rem;
+    border-top: 2px dashed var(--color-cherry-pink); /* Đường viền đứt nét phân cách */
+    padding-top: 2.5rem;
 }
 
-.nav-card {
+.card {
     display: block;
     text-decoration: none;
-    background-color: var(--color-white);
+    background-color: var(--color-white); /* Nền trắng như ảnh 1 */
     padding: 25px;
-    border-radius: 20px;
-    border: 2px solid var(--color-cherry-pink);
+    border-radius: 15px;
+    border: 2px solid var(--color-cherry-pink); /* Viền màu hồng như ảnh 1 */
     text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.nav-card:hover {
+.card:hover {
     transform: translateY(-5px);
-    background-color: var(--color-cherry-pink);
+    background-color: #FFF5F7; /* Đổi màu nền cực nhẹ khi lướt qua */
 }
 
-.nav-card:hover h3, .nav-card:hover p {
-    color: var(--color-white);
-}
-
-.nav-card h3 {
+.card h3 {
     color: var(--color-text-title);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
-    transition: color 0.3s ease;
 }
 
-.nav-card p {
+.card p {
     color: var(--color-text-body);
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
 }
 
-/* Responsive cho điện thoại */
-@media (max-width: 768px) {
-    .grid-container, .navigation-cards {
-        grid-template-columns: 1fr;
+/* Responsive: Co giãn tốt trên điện thoại và máy tính bảng */
+@media (max-width: 850px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên iPad */
     }
 }
 
-/* Animations cơ bản */
+@media (max-width: 600px) {
+    .skills-grid, .navigation-cards {
+        grid-template-columns: 1fr; /* 1 cột trên điện thoại */
+    }
+}
+
+/* Animations */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
     animation: fadeIn 0.8s forwards;
 }
 
