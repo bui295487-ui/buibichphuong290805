@@ -23,7 +23,7 @@ body {
     font-family: 'Inter', sans-serif;
     /* Cài đặt ảnh nền cute */
     background-color: #FFF5F7; 
-    background-image: url('../anh.jpg'); /* Đảm bảo tên file ảnh khớp với file bạn đã lưu */
+    background-image: url('anh.jpg'); /* Đảm bảo tên file ảnh khớp với file bạn đã lưu */
     background-repeat: repeat; /* Lặp lại họa tiết */
     background-size: 350px; /* Chỉnh độ lớn của họa tiết nền (có thể tăng giảm tùy ý) */
     background-attachment: fixed;
