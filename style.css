@@ -80,6 +80,22 @@ h1 {
     margin: 0 auto;
     text-align: center;
 }
+.nav-section-header {
+    text-align: center; /* Lệnh này giúp căn giữa nội dung */
+    display: flex; /* Dùng thêm flex để đảm bảo căn giữa tuyệt đối */
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px dashed var(--color-cherry-pink); /* Đường cắt ngang đứt nét */
+}
+
+.nav-section-title {
+    font-size: 1.5rem;
+    color: var(--color-text-title);
+    font-weight: 800;
+    margin-bottom: -0.5rem; 
+}
 
 /* Bố cục 4 cột ngang cho Kỹ Năng */
 .skills-container {
