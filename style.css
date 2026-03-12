@@ -189,3 +189,56 @@ delay-2 { transition-delay: 0.4s; }
     .card { width: 100%; }
     .skills-grid { grid-template-columns: 1fr; }
 }
+/* CSS cho phần Kỹ năng */
+.skills-section {
+    margin: 3rem 0; /* Tăng khoảng cách trên và dưới của toàn bộ khu vực */
+}
+
+.skills-section h3 {
+    margin-bottom: 2rem; /* Khoảng cách từ tiêu đề xuống các khung */
+    font-size: 1.5rem;
+}
+
+/* Tạo lưới để chứa 4 khung */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột ngang nhau */
+    gap: 1.5rem; /* Tăng khoảng cách (khe hở) giữa các khung */
+}
+
+/* Thiết kế cho từng khung kỹ năng */
+.skill-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Màu nền khung hơi trong suốt để nổi bật trên nền tối */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Viền mờ tinh tế */
+    border-radius: 12px; /* Bo góc giống với các nút bên dưới */
+    padding: 1.5rem; /* Tăng khoảng cách từ chữ ra viền khung */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột vào khung */
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.08); /* Khung sáng lên một chút */
+}
+
+/* Tiêu đề của từng kỹ năng */
+.skill-card h4 {
+    color: #60a5fa; /* Màu xanh nhạt (bạn có thể đổi mã màu cho khớp với chữ Kinh nghiệm/Dự án) */
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9; /* Làm chữ dịu đi một chút so với nền tối */
+}
+
+/* Responsive: Thu về 1 cột khi xem trên điện thoại */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Màn hình nhỏ thì chỉ hiển thị 1 cột */
+    }
+}
