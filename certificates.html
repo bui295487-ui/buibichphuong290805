@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates | Bùi Bích Phương</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/certificates.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>My Certificates</h1>
+
+    <!-- Filter -->
+    <div class="filter">
+        <button onclick="filterCert('all')">All</button>
+        <button onclick="filterCert('marketing')">Marketing</button>
+        <button onclick="filterCert('english')">English</button>
+    </div>
+
+    <div class="cert-grid">
+
+        <!-- Cert 1 -->
+        <div class="cert-card" data-type="marketing">
+            <img src="images/cert1.png">
+            <div class="cert-content">
+                <h3>Attract and Engage Customers with Digital Marketing</h3>
+                <a href="https://coursera.org/verify/SIEMDMMRL9NX" target="_blank">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card" data-type="marketing">
+            <img src="images/cert2.png">
+            <div class="cert-content">
+                <h3>Marketing Analytics and Measurement</h3>
+                <a href="https://coursera.org/verify/7OPQ5FNVJ8GH" target="_blank">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card" data-type="marketing">
+            <img src="images/cert3.png">
+            <div class="cert-content">
+                <h3>Foundations of Digital Marketing & E-commerce</h3>
+                <a href="https://coursera.org/verify/DMBXVFRYT5CL" target="_blank">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- TOEIC -->
+        <div class="cert-card" data-type="english">
+            <img src="images/toeic.png">
+            <div class="cert-content">
+                <h3>TOEIC Certificate - Score: 840</h3>
+                <a href="#">Internal Proof</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- JS -->
+<script src="js/certificates.js"></script>
+
+</body>
+</html>
