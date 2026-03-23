@@ -3,69 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates | Bùi Bích Phương</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/certificates.css">
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Chứng chỉ - Bùi Bích Phương</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS bổ sung riêng cho trang này để bố cục đẹp hơn khi đứng độc lập */
+        body {
+            background-color: #fdf5f6;
+            background-image: radial-gradient(#f3d6db 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .cert-container {
+            background-color: #fbf8f1;
+            border: 2px dashed #e8c5c8;
+            border-radius: 30px;
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #a45a64;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: opacity 0.2s;
+        }
+        .back-btn:hover {
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>My Certificates</h1>
+    <div class="cert-container">
+        <a href="index.html" class="back-btn">&larr; Quay lại trang chủ</a>
 
-    <!-- Filter -->
-    <div class="filter">
-        <button onclick="filterCert('all')">All</button>
-        <button onclick="filterCert('marketing')">Marketing</button>
-        <button onclick="filterCert('english')">English</button>
+        <h2 class="section-heading">✨ Danh Mục Chứng Chỉ ✨</h2>
+
+        <div class="cert-grid">
+            <div class="cert-card cert-color-1" onclick="openLink('https://coursera.org/verify/DMBXVFRYT5CL')">
+                <div class="cert-top">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
+                    <span class="cert-icon">🏅</span>
+                </div>
+                <h4 class="cert-title">Foundations of Digital Marketing and E-commerce</h4>
+                <p class="cert-org">Google / Coursera</p>
+                <p class="cert-date">Feb 3, 2026</p>
+            </div>
+
+            <div class="cert-card cert-color-2">
+                <div class="cert-top">
+                    <h4 class="cert-title">TOEIC Certificate</h4>
+                    <span class="cert-icon">🎓</span>
+                </div>
+                <div class="toeic-score">840</div>
+                <p class="cert-org">Tổ chức: ETS</p>
+                <img src="https://luyenthiielts7.com/wp-content/uploads/2021/05/bang-diem-toeic-1.jpg" alt="TOEIC Thumbnail" class="toeic-thumb">
+            </div>
+
+            <div class="cert-card cert-color-3" onclick="openLink('https://coursera.org/verify/7OPQ5FNVJ8GH')">
+                <div class="cert-top">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
+                    <span class="cert-icon">🏅</span>
+                </div>
+                <h4 class="cert-title">Assess for Success: Marketing Analytics and Measurement</h4>
+                <p class="cert-org">Google / Coursera</p>
+                <p class="cert-date">Aug 26, 2025</p>
+            </div>
+
+            <div class="cert-card cert-color-4" onclick="openLink('https://coursera.org/verify/SIEMDMMRL9NX')">
+                <div class="cert-top">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
+                    <span class="cert-icon">🏅</span>
+                </div>
+                <h4 class="cert-title">Attract and Engage Customers with Digital Marketing</h4>
+                <p class="cert-org">Google / Coursera</p>
+                <p class="cert-date">Aug 26, 2025</p>
+            </div>
+        </div>
     </div>
 
-    <div class="cert-grid">
-
-        <!-- Cert 1 -->
-        <div class="cert-card" data-type="marketing">
-            <img src="images/cert1.png">
-            <div class="cert-content">
-                <h3>Attract and Engage Customers with Digital Marketing</h3>
-                <a href="https://coursera.org/verify/SIEMDMMRL9NX" target="_blank">View Certificate</a>
-            </div>
-        </div>
-
-        <!-- Cert 2 -->
-        <div class="cert-card" data-type="marketing">
-            <img src="images/cert2.png">
-            <div class="cert-content">
-                <h3>Marketing Analytics and Measurement</h3>
-                <a href="https://coursera.org/verify/7OPQ5FNVJ8GH" target="_blank">View Certificate</a>
-            </div>
-        </div>
-
-        <!-- Cert 3 -->
-        <div class="cert-card" data-type="marketing">
-            <img src="images/cert3.png">
-            <div class="cert-content">
-                <h3>Foundations of Digital Marketing & E-commerce</h3>
-                <a href="https://coursera.org/verify/DMBXVFRYT5CL" target="_blank">View Certificate</a>
-            </div>
-        </div>
-
-        <!-- TOEIC -->
-        <div class="cert-card" data-type="english">
-            <img src="images/toeic.png">
-            <div class="cert-content">
-                <h3>TOEIC Certificate - Score: 840</h3>
-                <a href="#">Internal Proof</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- JS -->
-<script src="js/certificates.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
