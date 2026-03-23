@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chứng chỉ - Bùi Bích Phương</title>
+    <title>Danh Mục Chứng Chỉ - Bùi Bích Phương</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
@@ -19,8 +19,9 @@
             min-height: 100vh;
             padding: 20px;
             font-family: 'Quicksand', sans-serif;
+            margin: 0;
         }
-        .cert-container {
+        .main-cert-container {
             background-color: #fbf8f1;
             border: 2px dashed #e8c5c8;
             border-radius: 30px;
@@ -28,6 +29,7 @@
             width: 100%;
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
         }
         .back-btn {
             display: inline-block;
@@ -40,17 +42,165 @@
         .back-btn:hover {
             opacity: 0.7;
         }
+        .page-title {
+            color: #a45a64;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        /* --- CSS CHO PHẦN CHỨNG CHỈ (BỐ CỤC 4 CỘT) --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .cert-card {
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cert-logo {
+            height: 20px;
+        }
+
+        .cert-icon {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        .cert-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .cert-org {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .cert-date {
+            font-size: 11px;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Hình ảnh thumbnail chứng chỉ trong thẻ */
+        .cert-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+            cursor: pointer; /* Cho biết có thể click */
+            transition: transform 0.2s;
+            margin-top: auto; /* Đẩy xuống đáy */
+        }
+
+        .cert-thumbnail:hover {
+            transform: scale(1.03);
+        }
+
+        /* Phần riêng cho TOEIC */
+        .toeic-score {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        /* 4 Màu đồng bộ với ảnh 4 của bạn */
+        .cert-color-1 { background-color: #d8dfef; } /* Xanh tím */
+        .cert-color-2 { background-color: #efb0be; } /* Hồng */
+        .cert-color-3 { background-color: #92c499; } /* Xanh lá */
+        .cert-color-4 { background-color: #fce1a9; } /* Vàng */
+
+        /* --- CSS CHO MODAL (CỬA SỔ PHÓNG TO ẢNH) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 12px;
+            object-fit: contain; /* Đảm bảo ảnh không bị méo */
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Hiệu ứng mờ cho modal */
+        .modal-content, .modal-caption {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
     </style>
 </head>
 <body>
 
-    <div class="cert-container">
+    <div class="main-cert-container">
         <a href="index.html" class="back-btn">&larr; Quay lại trang chủ</a>
 
-        <h2 class="section-heading">✨ Danh Mục Chứng Chỉ ✨</h2>
+        <h1 class="page-title">✨ Danh Mục Chứng Chỉ ✨</h1>
 
         <div class="cert-grid">
-            <div class="cert-card cert-color-1" onclick="openLink('https://coursera.org/verify/DMBXVFRYT5CL')">
+            <div class="cert-card cert-color-1">
                 <div class="cert-top">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
                     <span class="cert-icon">🏅</span>
@@ -58,6 +208,7 @@
                 <h4 class="cert-title">Foundations of Digital Marketing and E-commerce</h4>
                 <p class="cert-org">Google / Coursera</p>
                 <p class="cert-date">Feb 3, 2026</p>
+                <img src="uploaded:cert1.jpg" alt="Google Marketing Cert" class="cert-thumbnail" onclick="openModal(this.src)">
             </div>
 
             <div class="cert-card cert-color-2">
@@ -67,10 +218,11 @@
                 </div>
                 <div class="toeic-score">840</div>
                 <p class="cert-org">Tổ chức: ETS</p>
-                <img src="https://luyenthiielts7.com/wp-content/uploads/2021/05/bang-diem-toeic-1.jpg" alt="TOEIC Thumbnail" class="toeic-thumb">
+                <p class="cert-date">Aug 15, 2025</p>
+                <img src="uploaded:cert2.jpg" alt="TOEIC Score Report" class="cert-thumbnail" onclick="openModal(this.src)">
             </div>
 
-            <div class="cert-card cert-color-3" onclick="openLink('https://coursera.org/verify/7OPQ5FNVJ8GH')">
+            <div class="cert-card cert-color-3">
                 <div class="cert-top">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
                     <span class="cert-icon">🏅</span>
@@ -78,6 +230,7 @@
                 <h4 class="cert-title">Assess for Success: Marketing Analytics and Measurement</h4>
                 <p class="cert-org">Google / Coursera</p>
                 <p class="cert-date">Aug 26, 2025</p>
+                <img src="uploaded:cert3.jpg" alt="Google Analytics Cert" class="cert-thumbnail" onclick="openModal(this.src)">
             </div>
 
             <div class="cert-card cert-color-4" onclick="openLink('https://coursera.org/verify/SIEMDMMRL9NX')">
@@ -88,10 +241,46 @@
                 <h4 class="cert-title">Attract and Engage Customers with Digital Marketing</h4>
                 <p class="cert-org">Google / Coursera</p>
                 <p class="cert-date">Aug 26, 2025</p>
-            </div>
+                </div>
         </div>
     </div>
 
+    <div id="cert-modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
     <script src="script.js"></script>
+
+    <script>
+        // JS bổ sung riêng cho trang này để xử lý modal phóng to ảnh
+
+        // Hàm mở link (cho thẻ số 4 không có ảnh)
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+
+        // Lấy các phần tử modal
+        var modal = document.getElementById("cert-modal");
+        var modalImg = document.getElementById("img01");
+
+        // Hàm mở modal và hiển thị ảnh phóng to
+        function openModal(imgSrc) {
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        // Hàm đóng modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Đóng modal khi click ra ngoài ảnh
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
