@@ -211,3 +211,65 @@ h1 {
         transform: translateY(0);
     }
 }
+/* --- CSS CHO PHẦN CHỨNG CHỈ --- */
+.divider-line {
+    border-top: 1px dashed #e4aeb6;
+    margin: 40px auto 20px auto;
+    width: 80%;
+}
+
+.section-heading {
+    text-align: center;
+    color: #a45a64;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.cert-grid {
+    display: grid;
+    /* Hiển thị 4 cột trên máy tính, 2 cột hoặc 1 cột trên điện thoại */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.cert-card {
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.cert-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cert-logo {
+    height: 20px;
+}
+
+.cert-icon {
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+.cert-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    flex-grow: 1; /* Đẩy ngày tháng xuống đáy */
+}
