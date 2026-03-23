@@ -27,3 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         appearOnScroll.observe(el);
     });
 });
+// Thêm hàm mở link chứng chỉ
+function openLink(url) {
+    window.open(url, '_blank');
+}
