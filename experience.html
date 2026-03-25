@@ -20,16 +20,18 @@
             padding-bottom: 100px;
         }
 
-        /* Nền hoa nhí lặp lại */
+        /* Nền hoa/chấm bi (Đã sửa lỗi mã base64 để hiển thị được nền) */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMTAgMTBoMjB2MjBIMTB6TTAgMEgxMHYxMEgwek0wIDQwSDEwdjEwSDB6TTQwIDBINCBOdjEwSDQwek00MCA0MEg0O Stry40Sk00MC45MSAzNC43N2wtMS44Mi44MmMuOTkgMi4xOCAyLjExIDQuMzQgMy4xNyA2LjUxbDEuODMtLjgyYy0xLjE0LTIuNDgtMi4zMS00Ljk3LTMuMTgtNy41MXpNMjkuMDkgNS4yM2wxLjgyLS44MmMtLjk5LTIuMTgtMi4xMS00LjM0LTMuMTctNi41MWwtMS44My44MmMxLjE0IDIuNDggMi4zMSA0Ljk3IDMuMTggNy41MXpNMzQuNzcgMTAuOTFsLjg4LTEuOTljLTIuMzYtMS4wMy00Ljc3LTIuMDYtNy4xOC0zLjA5bC0uODggMS45OWMyLjM3IDEuMDkgNC43OSAyLjEzIDcuMTggMy4wOXpNNS4yPyAyOS4wOWwtLjgyIDEuODJjMi4xOC45OSA0LjM0IDIuMTEgNi41MSAzLjE3bC44Mi0xLjgzYy0yLjQ4LTEuMTQtNC45Ny0yLjMxLTcuNTEtMy4xOHpNMTAuOTEgNC43N2wtMS45OS44OGMxLjAzIDIuMzYgMi4wNiA0Ljc3IDMuMDkgNy4xOGwxLjk5LS44OGMtMS4wOS0yLjM3LTIuMTMtNC43OS0zLjA5LTcuMTh6TTI5LjA5IDM0Ljc3bC44MiAxLjgzYzIuNDgtMS4xNCA0Ljk3LTIuMzEgNy41MS0zLjE4bC0uODItMS44MmMtMi4xOC45OS00LjM0IDIuMTEtNi41MSAzLjE3ek0zNC43NyA1LjIzbC0uODgtMS45OWMtMi4zNiAxLjAzLTQuNzcgMi4wNi03LjE4IDMuMDlsLjg4 1Lj95YzIuMzctMS4wOSA0LjM5LTIuMTMtNy4xOC0zLjA5WiIvPjwvZz48L2c+PC9zdmc+');
-            background-repeat: repeat; opacity: 0.6; z-index: -1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PC9zdmc+');
+            background-repeat: repeat; opacity: 0.8; z-index: -1;
         }
 
         /* --- 2. HEADER --- */
         .header-section {
-            text-align: center; padding: 60px 20px 40px; position: relative;
+            text-align: center; 
+            padding: 100px 20px 40px; /* Tăng khoảng cách lên 100px để không bị nút quay lại đè lên */
+            position: relative;
         }
         .header-section h1 {
             font-family: 'Playfair Display', serif;
@@ -45,6 +47,7 @@
             padding: 8px 20px; border-radius: 20px; font-weight: 600;
             box-shadow: 0 4px 10px rgba(244, 143, 177, 0.4);
             transition: all 0.3s ease;
+            z-index: 10;
         }
         .back-btn:hover { background: #D81B60; transform: translateX(-5px); }
 
@@ -144,6 +147,8 @@
             .timeline-item::before { left: -30px; width: 25px; height: 25px; font-size: 0.9rem; }
             .hct-layout { grid-template-columns: 1fr; }
             .florist-layout { grid-template-columns: 1fr; }
+            .header-section { padding-top: 100px; }
+            .header-section h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -217,7 +222,8 @@
                 </div>
             </div>
 
-        </div> </div>
+        </div> 
+    </div>
 
     <script>
         function reveal() {
