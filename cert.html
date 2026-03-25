@@ -4,217 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Mục Chứng Chỉ - Bùi Bích Phương</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* --- 1. CÀI ĐẶT CHUNG ĐỒNG BỘ --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* CSS bổ sung riêng cho trang này để bố cục đẹp hơn khi đứng độc lập */
         body {
-            background-color: #fdf5f6;
-            background-image: radial-gradient(#f3d6db 1px, transparent 1px);
-            background-size: 20px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
             font-family: 'Quicksand', sans-serif;
-            margin: 0;
-        }
-        .main-cert-container {
-            background-color: #fbf8f1;
-            border: 2px dashed #e8c5c8;
-            border-radius: 30px;
-            max-width: 900px;
-            width: 100%;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .back-btn {
-            display: inline-block;
-            text-decoration: none;
-            color: #a45a64;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: opacity 0.2s;
-        }
-        .back-btn:hover {
-            opacity: 0.7;
-        }
-        .page-title {
-            color: #a45a64;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
+            background-color: #FFF0F5; 
+            color: #4E342E;
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-bottom: 100px;
         }
 
-        /* --- CSS CHO PHẦN CHỨNG CHỈ (BỐ CỤC 4 CỘT) --- */
+        /* Nền hoa nhí lặp lại */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PC9zdmc+');
+            background-repeat: repeat; opacity: 0.8; z-index: -1;
+        }
+
+        /* --- 2. HEADER SECTION ĐỒNG BỘ --- */
+        .header-section {
+            text-align: center; 
+            padding: 100px 20px 40px; 
+            position: relative;
+        }
+        
+        .header-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem; 
+            color: #D81B60; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        .header-section p { 
+            font-size: 1.1rem; 
+            color: #6D4C41; 
+            margin-top: 10px; 
+            font-weight: 500;
+        }
+
+        /* Nút quay lại (Góc trái trên) */
+        .back-btn {
+            position: absolute; top: 30px; left: 30px;
+            background: #F48FB1; color: #fff; text-decoration: none;
+            padding: 8px 20px; border-radius: 20px; font-weight: 600;
+            box-shadow: 0 4px 10px rgba(244, 143, 177, 0.4);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .back-btn:hover { background: #D81B60; transform: translateX(-5px); }
+
+        /* --- 3. BỐ CỤC LƯỚI CHỨNG CHỈ --- */
+        .cert-container {
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px;
+        }
+
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Rộng hơn một chút để ảnh đẹp hơn */
+            gap: 30px;
             width: 100%;
         }
 
+        /* --- 4. THẺ CHỨNG CHỈ (CARD) --- */
         .cert-card {
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 20px;
+            padding: 25px;
             position: relative;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-            min-height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.08);
+            border: 1px solid #FCE4EC;
             display: flex;
             flex-direction: column;
             text-align: left;
+            min-height: 300px;
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.15);
         }
+
+        /* 4 Màu pastel cực nhẹ thay cho màu gốc đậm */
+        .cert-color-1 { background-color: #f5f7fc; } /* Xanh dương siêu nhạt */
+        .cert-color-2 { background-color: #fdf5f7; } /* Hồng siêu nhạt */
+        .cert-color-3 { background-color: #f3f8f4; } /* Xanh lá siêu nhạt */
+        .cert-color-4 { background-color: #fdfaf2; } /* Vàng siêu nhạt */
 
         .cert-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .cert-logo {
-            height: 20px;
-        }
-
-        .cert-icon {
-            font-size: 18px;
-            opacity: 0.7;
-        }
+        .cert-logo { height: 24px; }
+        .cert-icon { font-size: 20px; opacity: 0.8; }
 
         .cert-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #333;
-            line-height: 1.4;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #880E4F; /* Đỏ rượu vang đồng bộ trang Experience */
             margin-bottom: 8px;
+            line-height: 1.4;
         }
 
         .cert-org {
-            font-size: 12px;
-            color: #555;
+            font-size: 0.95rem;
+            color: #D81B60; /* Hồng đậm */
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
         .cert-date {
-            font-size: 11px;
-            color: #777;
+            font-size: 0.85rem;
+            color: #6D4C41;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         /* Hình ảnh thumbnail chứng chỉ trong thẻ */
         .cert-thumbnail {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.1);
-            cursor: pointer; /* Cho biết có thể click */
-            transition: transform 0.2s;
-            margin-top: auto; /* Đẩy xuống đáy */
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: auto; /* Tự động đẩy ảnh xuống đáy thẻ */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .cert-thumbnail:hover {
-            transform: scale(1.03);
-        }
+        .cert-thumbnail:hover { transform: scale(1.05); }
 
         /* Phần riêng cho TOEIC */
         .toeic-score {
-            font-size: 36px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             font-weight: 700;
-            color: #333;
-            margin: 5px 0;
+            color: #556B2F; /* Xanh olive đồng bộ */
+            margin: 0 0 10px 0;
+            text-align: center;
         }
 
-        /* 4 Màu đồng bộ với ảnh 4 của bạn */
-        .cert-color-1 { background-color: #d8dfef; } /* Xanh tím */
-        .cert-color-2 { background-color: #efb0be; } /* Hồng */
-        .cert-color-3 { background-color: #92c499; } /* Xanh lá */
-        .cert-color-4 { background-color: #fce1a9; } /* Vàng */
-
-        /* --- CSS CHO MODAL (CỬA SỔ PHÓNG TO ẢNH) --- */
+        /* --- 5. MODAL (CỬA SỔ PHÓNG TO ẢNH) --- */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
             padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 0; top: 0; width: 100%; height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(78, 52, 46, 0.9); /* Màu nâu đen mờ để dịu mắt hơn đen tuyền */
+            backdrop-filter: blur(5px); /* Làm mờ nền sau */
         }
 
         .modal-content {
             margin: auto;
             display: block;
             max-width: 80%;
-            max-height: 80%;
-            border-radius: 12px;
-            object-fit: contain; /* Đảm bảo ảnh không bị méo */
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            object-fit: contain;
         }
 
         .close {
             position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
+            top: 20px; right: 40px;
+            color: #F8BBD0;
+            font-size: 50px;
             font-weight: bold;
             transition: 0.3s;
             cursor: pointer;
         }
 
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
+        .close:hover, .close:focus { color: #FFF; }
 
-        /* Hiệu ứng mờ cho modal */
-        .modal-content, .modal-caption {  
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
+        .modal-content { animation-name: zoom; animation-duration: 0.4s; }
+        @keyframes zoom { from {transform:scale(0.8); opacity: 0;} to {transform:scale(1); opacity: 1;} }
 
-        @keyframes zoom {
-            from {transform:scale(0)} 
-            to {transform:scale(1)}
-        }
-
-        .verify-link {
-            display: inline-block;
-            font-size: 12px;
-            color: #a45a64;
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 10px;
-            transition: 0.2s;
-        }
-        .verify-link:hover {
-            text-decoration: underline;
-            color: #d4954c;
+        /* Responsive Mobile */
+        @media (max-width: 900px) {
+            .header-section { padding-top: 100px; }
+            .header-section h1 { font-size: 2.5rem; }
+            .cert-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-cert-container">
+    <div class="header-section">
         <a href="index.html" class="back-btn">&larr; Quay lại trang chủ</a>
+        <h1>Danh Mục Chứng Chỉ</h1>
+        <p>Thành quả học tập & Trau dồi kỹ năng cá nhân 📚</p>
+    </div>
 
-        <h1 class="page-title">✨ Danh Mục Chứng Chỉ ✨</h1>
-
+    <div class="cert-container">
         <div class="cert-grid">
+            
             <div class="cert-card cert-color-1">
                 <div class="cert-top">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-logo">
@@ -228,7 +224,7 @@
 
             <div class="cert-card cert-color-2">
                 <div class="cert-top">
-                    <h4 class="cert-title">TOEIC Certificate</h4>
+                    <h4 class="cert-title" style="margin-bottom: 0;">TOEIC Certificate</h4>
                     <span class="cert-icon">🎓</span>
                 </div>
                 <div class="toeic-score">840</div>
@@ -258,45 +254,45 @@
                 <p class="cert-date">Aug 26, 2025</p>
                 <img src="cert1.png" alt="Google Marketing Cert" class="cert-thumbnail" onclick="openModal(this.src)">
             </div>
+            
         </div>
+    </div>
 
-        
     <div id="cert-modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
-    <script src="script.js"></script>
-
     <script>
-        // JS bổ sung riêng cho trang này để xử lý modal phóng to ảnh
-
-        // Hàm mở link (cho thẻ số 4 không có ảnh)
-        function openLink(url) {
-            window.open(url, '_blank');
-        }
-
-        // Lấy các phần tử modal
         var modal = document.getElementById("cert-modal");
         var modalImg = document.getElementById("img01");
 
-        // Hàm mở modal và hiển thị ảnh phóng to
         function openModal(imgSrc) {
             modal.style.display = "block";
             modalImg.src = imgSrc;
+            // Ngăn cuộn trang nền khi mở modal
+            document.body.style.overflow = "hidden";
         }
 
-        // Hàm đóng modal
         function closeModal() {
             modal.style.display = "none";
+            // Cho phép cuộn trang trở lại
+            document.body.style.overflow = "auto";
         }
 
-        // Đóng modal khi click ra ngoài ảnh
+        // Đóng khi click ra ngoài ảnh
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                closeModal();
             }
         }
+        
+        // Đóng khi ấn nút ESC trên bàn phím
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
