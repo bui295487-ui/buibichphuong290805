@@ -3,48 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinh nghiệm | Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portfolio Experience | Web Động</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CÀI ĐẶT CHUNG TONE HỒNG CUTE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 100%);
+            color: #5D4037;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; padding: 40px 20px;
+            overflow-x: hidden; position: relative;
+        }
+
+        /* --- STICKER TRÔI NỔI --- */
+        .sticker {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none; /* Không cản trở click chuột */
+            animation: float 4s ease-in-out infinite; /* Hiệu ứng động trôi nổi */
+        }
+        /* Tạo nhịp độ trôi nổi khác nhau cho tự nhiên */
+        .sticker.delay-1 { animation-delay: 1s; }
+        .sticker.delay-2 { animation-delay: 2s; }
+        .sticker-1 { top: 5%; left: 5%; width: 80px; }
+        .sticker-2 { bottom: 10%; right: 5%; width: 100px; }
+        .sticker-3 { top: 40%; left: 45%; width: 60px; opacity: 0.6; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* --- KHUNG LAYOUT CHÍNH --- */
+        .layout-container {
+            display: flex; gap: 40px; width: 100%; max-width: 1100px;
+            z-index: 1; /* Nằm trên sticker */
+        }
+
+        /* --- HIỆU ỨNG XUẤT HIỆN KHI TẢI TRANG --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .delay-05 { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- BÊN TRÁI: SKILLS --- */
+        .skills-section {
+            flex: 1; position: relative; height: 450px;
+            border-radius: 25px; overflow: hidden;
+            box-shadow: 0 15px 30px rgba(255, 182, 193, 0.4);
+            transition: transform 0.4s ease; /* Hiệu ứng hover động */
+        }
+        .skills-section:hover { transform: translateY(-5px); }
+        
+        .skills-section .bg-image {
+            width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%);
+        }
+        
+        .skills-section .pink-overlay {
+            position: absolute; bottom: 20px; left: 20px; right: 20px;
+            background: rgba(255, 182, 193, 0.85);
+            backdrop-filter: blur(5px); border-radius: 20px;
+            padding: 30px; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .skills-section h2 {
+            font-family: 'Playfair Display', serif; /* Phông có chân giả lập Sợi Nhớ */
+            font-size: 2.8rem; color: #fff; line-height: 1.1; font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .skill-item {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(255, 255, 255, 0.3); border-radius: 12px;
+            padding: 8px 15px; margin-bottom: 10px;
+            transition: all 0.3s ease; /* Hiệu ứng hover động */
+            cursor: pointer;
+        }
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateX(10px); /* Lướt nhẹ sang phải */
+        }
+
+        .skill-item img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; }
+        .skill-item span { color: #fff; font-weight: 600; font-size: 0.9rem; }
+
+        /* --- BÊN PHẢI: VIDEOGRAPHY / THÀNH PHẨM --- */
+        .videography-section { flex: 1; text-align: center; }
+        
+        .videography-section h3 {
+            font-family: 'Playfair Display', serif; font-size: 2rem;
+            color: #DB7093; margin-bottom: 20px; position: relative; display: inline-block;
+        }
+
+        .video-grid { display: flex; gap: 15px; justify-content: center; }
+        
+        .video-item {
+            flex: 1; height: 280px; border-radius: 20px; overflow: hidden;
+            position: relative; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy động */
+        }
+        .video-item:hover {
+            transform: scale(1.05) translateY(-10px); /* Phóng to và nảy lên */
+            box-shadow: 0 15px 25px rgba(219, 112, 147, 0.4);
+        }
+
+        .video-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .video-item:hover img { transform: scale(1.1); } /* Ảnh zoom nhẹ bên trong */
+
+        /* Nút Play nhấp nháy */
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 45px; height: 45px; background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            animation: pulse 2s infinite; /* Hiệu ứng nhịp đập */
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        .play-button::after {
+            content: ''; display: block; border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent; border-left: 14px solid #DB7093;
+            margin-left: 5px;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 768px) {
+            .layout-container { flex-direction: column; }
+            .skills-section .pink-overlay { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .video-grid { flex-wrap: wrap; }
+            .video-item { flex: 0 0 45%; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn fade-in">← Quay lại trang chủ</a>
-        
-        <h1 class="page-title fade-in">Kinh nghiệm làm việc</h1>
 
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <h3>Thực tập sinh Marketing</h3>
-                <h4 class="company">Công ty Cổ phần Giao dịch Hàng hóa HCT</h4>
-                <ul class="tasks">
-                    <li>Sáng tạo và xây dựng nội dung đa nền tảng (Fanpage, Reels, bài viết chuẩn SEO trên website).</li>
-                    <li>Cập nhật thông tin, biến động giá cả thị trường tài chính, kim loại, nông sản hàng ngày.</li>
-                    <li><strong>Thành tựu:</strong> Cải thiện lượng tương tác tự nhiên, đưa tin tức thị trường tiếp cận nhanh chóng đến tệp khách hàng mục tiêu.</li>
-                </ul>
-            </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/9103/9103028.png" alt="Sticker Nơ" class="sticker sticker-1">
+    <img src="https://cdn-icons-png.flaticon.com/512/3233/3233483.png" alt="Sticker Hoa" class="sticker sticker-2 delay-1">
+    <img src="https://cdn-icons-png.flaticon.com/512/836/836060.png" alt="Sticker Ngôi sao" class="sticker sticker-3 delay-2">
 
-            <div class="timeline-item fade-in delay-1">
-                <h3>Vận hành kinh doanh & CSKH</h3>
-                <h4 class="company">Tiệm hoa 85artflorist</h4>
-                <ul class="tasks">
-                    <li>Quản lý nguồn hàng, theo dõi tồn kho và xây dựng chiến lược giá cho các sản phẩm hoa.</li>
-                    <li>Trực fanpage, tư vấn sản phẩm, chốt đơn và giải quyết các vấn đề phát sinh của khách hàng.</li>
-                    <li><strong>Thành tựu:</strong> Tối ưu hóa quy trình nhập xuất, duy trì tỷ lệ khách hàng quay lại ổn định nhờ dịch vụ CSKH tận tâm.</li>
-                </ul>
-            </div>
+    <div class="layout-container">
 
-            <div class="timeline-item fade-in delay-2">
-                <h3>Chăm sóc khách hàng</h3>
-                <h4 class="company">Công ty cổ phần Kasaco</h4>
-                <ul class="tasks">
-                    <li>Tiếp nhận, xử lý thông tin và giải đáp thắc mắc của khách hàng qua các kênh liên lạc.</li>
-                    <li>Hỗ trợ đội ngũ kinh doanh trong việc duy trì mối quan hệ với đối tác và khách hàng cũ.</li>
-                    <li><strong>Thành tựu:</strong> Đạt chỉ tiêu về độ hài lòng của khách hàng (CSAT) và xử lý triệt để các ticket khiếu nại trong thời gian ngắn nhất.</li>
-                </ul>
+        <div class="skills-section fade-in-up">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="Background" class="bg-image">
+            
+            <div class="pink-overlay">
+                <div class="left-content">
+                    <h2>Kinh nghiệm<br>Làm việc</h2>
+                </div>
+                <div class="right-content">
+                    <div class="skill-item">
+                        <img src="https://via.placeholder.com/80/FFB6C1/fff?text=Hoa" alt="Item">
+                        <span>CẮM HOA &<br>CSKH</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://via.placeholder.com/80/DB7093/fff?text=MKT" alt="Item">
+                        <span>MARKETING<br>CONTENT</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="videography-section fade-in-up delay-05">
+            <h3>THÀNH PHẨM CỦA TÔI</h3>
+            <div class="video-grid">
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=300&auto=format&fit=crop" alt="Dự án 1">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=300&auto=format&fit=crop" alt="Dự án 2">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=300&auto=format&fit=crop" alt="Dự án 3">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script src="js/script.js"></script>
 </body>
 </html>
