@@ -3,112 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinh nghiệm | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Portfolio Kinh nghiệm Chuyên sâu | Tone Hồng Hoa Nhí</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CÀI ĐẶT CHUNG --- */
+        /* --- 1. CSS RESET & CÀI ĐẶT CHUNG (TONE HỒNG CUTE) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #FFF5F7; /* Nền hồng pastel */
-            color: #5D4037;
+            background-color: #FFF0F5; /* Hồng phấn rất nhạt */
+            color: #5D4037; /* Nâu đậm nhẹ nhàng */
             overflow-x: hidden;
-            padding-bottom: 100px;
+            line-height: 1.6;
         }
 
-        /* --- HIỆU ỨNG CUỘN (SCROLL REVEAL) --- */
+        /* Họa tiết hoa nhí lặp lại toàn màn hình */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMTAgMTBoMjB2MjBIMTB6TTAgMEgxMHYxMEgwek0wIDQwSDEwdjEwSDB6TTQwIDBINCBOdjEwSDQwek00MCA0MEg0O Stry40Sk00MC45MSAzNC43N2wtMS44Mi44MmMuOTkgMi4xOCAyLjExIDQuMzQgMy4xNyA2LjUxbDEuODMtLjgyYy0xLjE0LTIuNDgtMi4zMS00Ljk3LTMuMTgtNy41MXpNMjkuMDkgNS4yM2wxLjgyLS44MmMtLjk5LTIuMTgtMi4xMS00LjM0LTMuMTctNi41MWwtMS44My44MmMxLjE0IDIuNDggMi4zMSA0Ljk3IDMuMTggNy41MXpNMzQuNzcgMTAuOTFsLjg4LTEuOTljLTIuMzYtMS4wMy00Ljc3LTIuMDYtNy4xOC0zLjA5bC0uODggMS45OWMyLjM3IDEuMDkgNC43OSAyLjEzIDcuMTggMy4wOXpNNS4yPyAyOS4wOWwtLjgyIDEuODJjMi4xOC45OSA0LjM0IDIuMTEgNi41MSAzLjE3bC44Mi0xLjgzYy0yLjQ4LTEuMTQtNC45Ny0yLjMxLTcuNTEtMy4xOHpNMTAuOTEgNC43N2wtMS45OS44OGMxLjAzIDIuMzYgMi4wNiA0Ljc3IDMuMDkgNy4xOGwxLjk5LS44OGMtMS4wOS0yLjM3LTIuMTMtNC43OS0zLjA5LTcuMTh6TTI5LjA5IDM0Ljc3bC44MiAxLjgzYzIuNDgtMS4xNCA0Ljk3LTIuMzEgNy41MS0zLjE4bC0uODItMS44MmMtMi4xOC45OS00LjM0IDIuMTEtNi41MSAzLjE3ek0zNC43NyA1LjIzbC0uODgtMS45OWMtMi4zNiAxLjAzLTQuNzcgMi4wNi03LjE4IDMuMDlsLjg4 1Lj95YzIuMzctMS4wOSA0LjM5LTIuMTMtNy4xOC0zLjA5WiIvPjwvZz48L2c+PC9zdmc+');
+            background-repeat: repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Tiêu đề chính dạng Sợi Nhớ */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        /* --- 2. HIỆU ỨNG CUỘN (SCROLL REVEAL) --- */
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(70px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- HEADER --- */
+        /* --- 3. STICKER TRÔI NỔI --- */
+        .floating-stickers { position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+        .sticker { position: absolute; animation: float infinite ease-in-out; opacity: 0.7; }
+        .sticker-1 { top: 10%; left: 5%; width: 60px; animation-duration: 6s; }
+        .sticker-2 { bottom: 15%; right: 8%; width: 80px; animation-duration: 7s; }
+        .sticker-3 { top: 40%; left: 50%; width: 40px; animation-duration: 5s; opacity: 0.4; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* --- 4. CẤU TRÚC LAYOUT CHÍNH --- */
         .header-section {
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            height: 60vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px;
         }
-        .header-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: #DB7093;
-            margin-bottom: 15px;
-        }
+        .header-section h1 { font-size: 4rem; color: #DB7093; margin-bottom: 15px; }
+        .header-section p { font-size: 1.1rem; font-weight: 500; opacity: 0.8; }
 
-        /* --- TỪNG KHỐI KINH NGHIỆM ĐI LIỀN SẢN PHẨM --- */
-        .work-block {
+        /* Khối lớn cho từng công ty */
+        .company-block {
             max-width: 1100px;
-            margin: 0 auto 100px auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.6); /* Nền trắng mờ để tách biệt từng khối */
+            margin: 0 auto 120px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.7); /* Trắng đục nền hoa */
             border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(255, 182, 193, 0.2);
-            border-top: 5px solid #FFB6C1;
+            box-shadow: 0 15px 40px rgba(255, 182, 193, 0.2);
+            border-top: 6px solid #FFB6C1;
+            position: relative; z-index: 2;
         }
 
-        /* --- PHẦN THÔNG TIN TEXT --- */
-        .work-info {
-            margin-bottom: 40px;
-        }
-        .work-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #DB7093;
-        }
-        .work-info .company-name {
-            font-size: 1.2rem;
-            color: #d15c82;
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .work-info ul {
-            list-style-type: none; /* Bỏ dấu chấm mặc định */
-            padding-left: 0;
-        }
-        .work-info li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 25px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-        .work-info li::before {
-            content: "✿"; /* Thay bullet bằng hoa nhỏ cute */
-            position: absolute;
-            left: 0;
-            color: #FFB6C1;
-            font-size: 1.2rem;
-        }
-        .work-info strong { color: #d15c82; }
+        /* Thông tin công ty (Chữ) */
+        .company-info { margin-bottom: 50px; }
+        .company-info h2 { font-size: 2.5rem; color: #DB7093; margin-bottom: 5px; }
+        .company-info .job-title { font-size: 1.3rem; font-weight: 600; color: #d15c82; font-style: italic; margin-bottom: 25px; }
+        .company-info ul { list-style-type: none; }
+        .company-info li { margin-bottom: 15px; position: relative; padding-left: 30px; font-size: 1.1rem; }
+        .company-info li::before { content: "✿"; position: absolute; left: 0; color: #FFB6C1; font-size: 1.2rem; }
+        .company-info strong { color: #d15c82; font-weight: 700; }
 
-        /* --- PHẦN ẢNH SẢN PHẨM (3 ẢNH DỌC) --- */
-        .work-products h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #5D4037;
-            margin-bottom: 25px;
-            text-align: center;
+        /* --- 5. CHIA THÀNH PHẨM (TRỌNG TÂM) --- */
+        .products-container { }
+        .products-container h3 { font-size: 2rem; color: #5D4037; margin-bottom: 35px; text-align: center; font-style: normal; }
+
+        /* Tiêu đề nhỏ chia SEO, Visual, Reels */
+        .product-category-title {
+            font-size: 1.4rem; color: #DB7093; margin-top: 40px; margin-bottom: 20px;
+            position: relative; display: inline-block; padding-bottom: 5px;
         }
+        .product-category-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 60%; height: 3px; background-color: #FFB6C1; border-radius: 2px; }
+
+        /* Lưới ảnh (3 ảnh dọc to bự) */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
+
         .gallery-item {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 3/4; /* Ảnh dọc */
+            aspect-ratio: 3/4; /* Tỷ lệ dọc */
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -117,70 +121,87 @@
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(219, 112, 147, 0.3);
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        /* Nút Play cho Reels */
         .play-btn {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px; height: 50px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 55px; height: 55px; background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
         }
         .play-btn::after {
-            content: ''; display: block;
-            border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 15px solid #DB7093;
-            margin-left: 5px;
+            content: ''; display: block; border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent; border-left: 17px solid #DB7093;
+            margin-left: 6px;
         }
 
-        /* Responsive Điện thoại */
+        /* --- Responsive Điện thoại --- */
         @media (max-width: 768px) {
-            .gallery-grid { grid-template-columns: 1fr; }
-            .work-block { padding: 20px; }
-            .header-section h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; } /* Chuyển thành 1 ảnh dọc */
+            .company-block { padding: 30px; }
+            .header-section h1 { font-size: 2.8rem; }
+            .company-info h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="floating-stickers">
+        <img src="https://via.placeholder.com/60/FFB6C1/fff?text=Nơ" alt="Sticker" class="sticker sticker-1">
+        <img src="https://via.placeholder.com/80/DB7093/fff?text=Hoa" alt="Sticker" class="sticker sticker-2">
+        <img src="https://via.placeholder.com/40/FFE4E1/fff?text=Sao" alt="Sticker" class="sticker sticker-3">
+    </div>
+
     <section class="header-section reveal">
-        <h1>Kinh nghiệm & Thành phẩm</h1>
-        <p>Lướt xuống để xem hành trình công việc của tôi ↓</p>
+        <h1>Kinh nghiệm làm việc</h1>
+        <p>Cuộn xuống để xem các dự án & thành phẩm nổi bật của tôi ↓</p>
     </section>
 
-    <div class="work-block reveal">
-        <div class="work-info">
-            <h2>Thực tập sinh Marketing</h2>
-            <div class="company-name">@ Công ty Cổ phần Giao dịch Hàng hóa HCT</div>
+    <div class="company-block reveal">
+        
+        <div class="company-info">
+            <h2>Công ty Cổ phần Giao dịch Hàng hóa HCT</h2>
+            <div class="job-title">Thực tập sinh Marketing</div>
             <ul>
                 <li>Sáng tạo và xây dựng nội dung đa nền tảng (Fanpage, Reels, bài viết chuẩn SEO trên website).</li>
                 <li>Cập nhật thông tin, biến động giá cả thị trường tài chính, kim loại, nông sản hàng ngày.</li>
                 <li><strong>Thành tựu:</strong> Cải thiện lượng tương tác tự nhiên, đưa tin tức thị trường tiếp cận nhanh chóng đến tệp khách hàng mục tiêu.</li>
             </ul>
         </div>
-        
-        <div class="work-products">
-            <h4>Thành phẩm nổi bật tại HCT</h4>
+
+        <div class="products-container">
+            <h3>Thành phẩm nổi bật khi làm ở HCT</h3>
+
+            <h4 class="product-category-title">A. Bài viết chuẩn SEO Website</h4>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=400&auto=format&fit=crop" alt="Fanpage HCT"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" alt="SEO Article"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=400&auto=format&fit=crop" alt="Reels Video"><div class="play-btn"></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" alt="SEO Bài 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="SEO Bài 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&auto=format&fit=crop" alt="SEO Bài 3"></div>
             </div>
+
+            <h4 class="product-category-title">B. Visual Content (Bài viết Fanpage)</h4>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=400&auto=format&fit=crop" alt="Fanpage Post 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1496200186974-4293800e2c20?q=80&w=400&auto=format&fit=crop" alt="Fanpage Post 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1557682257-2f9c37a3a5f3?q=80&w=400&auto=format&fit=crop" alt="Fanpage Post 3"></div>
+            </div>
+
+            <h4 class="product-category-title">C. Reels Video từng làm</h4>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=400&auto=format&fit=crop" alt="Reels 1"><div class="play-btn"></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=400&auto=format&fit=crop" alt="Reels 2"><div class="play-btn"></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=400&auto=format&fit=crop" alt="Reels 3"><div class="play-btn"></div></div>
+            </div>
+
         </div>
     </div>
 
-    <div class="work-block reveal">
-        <div class="work-info">
-            <h2>Vận hành kinh doanh & CSKH</h2>
-            <div class="company-name">@ Tiệm hoa 85artflorist</div>
+    <div class="company-block reveal">
+        
+        <div class="company-info">
+            <h2>Tiệm hoa 85artflorist</h2>
+            <div class="job-title">Vận hành kinh doanh & CSKH</div>
             <ul>
                 <li>Quản lý nguồn hàng, theo dõi tồn kho và xây dựng chiến lược giá cho các sản phẩm hoa.</li>
                 <li>Trực fanpage, tư vấn sản phẩm, chốt đơn và giải quyết các vấn đề phát sinh của khách hàng.</li>
@@ -188,30 +209,40 @@
             </ul>
         </div>
 
-        <div class="work-products">
-            <h4>Thành phẩm nổi bật tại 85artflorist</h4>
+        <div class="products-container">
+            <h3>Thành phẩm nổi bật khi làm ở Tiệm hoa</h3>
+
+            <h4 class="product-category-title">Sản phẩm hoa & Feedback</h4>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=400&auto=format&fit=crop" alt="Sản phẩm hoa 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=400&auto=format&fit=crop" alt="Sản phẩm hoa 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508611440058-202d589f3032?q=80&w=400&auto=format&fit=crop" alt="Feedback/CSKH"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=400&auto=format&fit=crop" alt="Sản phẩm hoa"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=400&auto=format&fit=crop" alt="Tư vấn khách hàng"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508611440058-202d589f3032?q=80&w=400&auto=format&fit=crop" alt="Feedback"></div>
             </div>
+
         </div>
     </div>
 
     <script>
+        // Hàm reveal: Kiểm tra khi nào khối nội dung cuộn vào tầm nhìn
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
+
             for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150; 
+                var windowHeight = window.innerHeight; // Chiều cao màn hình
+                var elementTop = reveals[i].getBoundingClientRect().top; // Vị trí đỉnh khối
+                var elementVisible = 150; // Khối phải cuộn qua cách đỉnh 150px thì mới hiện
+
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+                    reveals[i].classList.add("active"); // Thêm class 'active' để hiện ra
                 }
             }
         }
+
+        // Lắng nghe sự kiện cuộn chuột
         window.addEventListener("scroll", reveal);
-        reveal(); // Chạy ngay khi mở web
+
+        // Kích hoạt ngay lúc đầu để hiện các phần đã có trên màn hình
+        reveal();
     </script>
 
 </body>
