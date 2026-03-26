@@ -14,13 +14,12 @@
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #FFF0F5; 
-            color: #4E342E; /* Nâu đen mượt mắt */
+            color: #4E342E;
             overflow-x: hidden;
             line-height: 1.6;
             padding-bottom: 100px;
         }
 
-        /* Nền hoa/chấm bi (Đã sửa lỗi mã base64 để hiển thị được nền) */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PC9zdmc+');
@@ -30,17 +29,16 @@
         /* --- 2. HEADER --- */
         .header-section {
             text-align: center; 
-            padding: 100px 20px 40px; /* Tăng khoảng cách lên 100px để không bị nút quay lại đè lên */
+            padding: 100px 20px 40px;
             position: relative;
         }
         .header-section h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem; color: #D81B60; /* Hồng đậm nổi bật */
+            font-size: 3.5rem; color: #D81B60;
             text-transform: uppercase; letter-spacing: 2px;
         }
         .header-section p { font-size: 1.1rem; color: #6D4C41; margin-top: 10px; font-weight: 500;}
 
-        /* Nút quay lại (Góc trái trên) */
         .back-btn {
             position: absolute; top: 30px; left: 30px;
             background: #F48FB1; color: #fff; text-decoration: none;
@@ -51,10 +49,10 @@
         }
         .back-btn:hover { background: #D81B60; transform: translateX(-5px); }
 
-        /* --- 3. KHUNG TIMELINE (DÒNG THỜI GIAN) --- */
+        /* --- 3. KHUNG TIMELINE --- */
         .timeline-container {
             max-width: 1200px; margin: 0 auto; padding: 0 20px 0 60px;
-            border-left: 3px dashed #F48FB1; /* Đường kẻ dọc */
+            border-left: 3px dashed #F48FB1;
             position: relative;
         }
 
@@ -66,7 +64,6 @@
             border: 1px solid #FCE4EC;
         }
 
-        /* Nút tròn mốc thời gian trên đường kẻ */
         .timeline-item::before {
             content: "✿"; position: absolute; left: -60px; top: 40px;
             width: 35px; height: 35px; background: #FFF0F5; border: 3px solid #F48FB1;
@@ -74,16 +71,14 @@
             color: #D81B60; font-size: 1.2rem; transform: translateX(-50%);
         }
 
-        /* --- 4. MÀU SẮC CHỮ ĐA DẠNG --- */
+        /* --- 4. MÀU SẮC CHỮ --- */
         .company-name {
             font-family: 'Playfair Display', serif; font-size: 2.2rem; 
-            color: #880E4F; /* Đỏ rượu vang/Hồng rất đậm */
-            margin-bottom: 5px;
+            color: #880E4F; margin-bottom: 5px;
         }
         .job-title {
             font-size: 1.3rem; font-weight: 700;
-            color: #556B2F; /* XANH OLIVE - Giống màu font Sợi Nhớ */
-            margin-bottom: 20px; font-style: italic;
+            color: #556B2F; margin-bottom: 20px; font-style: italic;
         }
         .desc-list { list-style: none; margin-bottom: 30px; }
         .desc-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
@@ -92,11 +87,10 @@
 
         .cat-title {
             font-family: 'Playfair Display', serif; font-size: 1.3rem;
-            color: #E64A19; /* Cam san hô để tách biệt với hồng */
-            margin-bottom: 15px; text-align: center;
+            color: #E64A19; margin-bottom: 15px; text-align: center;
         }
 
-        /* --- 5. BỐ CỤC KHỐI HCT (CHIA 3 CỘT NGANG) --- */
+        /* --- 5. BỐ CỤC KHỐI HCT --- */
         .hct-layout {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
             padding-top: 20px; border-top: 1px dashed #F8BBD0;
@@ -106,40 +100,80 @@
         }
         .mini-img-box {
             aspect-ratio: 3/4; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: zoom-in; /* Thêm con trỏ zoom */
+            transition: transform 0.3s;
         }
         .mini-img-box:hover { transform: scale(1.1); }
         .mini-img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- 6. BỐ CỤC KHỐI TIỆM HOA (CHIA TRÁI PHẢI, ẢNH TỰ DO TỶ LỆ) --- */
+        /* --- 6. BỐ CỤC KHỐI TIỆM HOA --- */
         .florist-layout {
             display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px;
             align-items: start;
         }
         
-        /* ẢNH BÁN HÀNG TỶ LỆ GỐC NHƯ BẠN YÊU CẦU */
         .wide-product-img {
-            width: 100%;       /* Chiều rộng full cột */
-            height: auto;      /* Chiều cao TỰ ĐỘNG tỷ lệ thuận với chiều rộng -> Không cắt ảnh */
+            width: 100%; height: auto;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border: 1px solid #FCE4EC;
             transition: transform 0.3s ease;
+            cursor: zoom-in; /* Thêm con trỏ zoom */
         }
         .wide-product-img:hover { transform: translateY(-5px); }
 
-        /* Khung nhỏ dưới ảnh to (nếu có ảnh feedback) */
         .florist-sub-gallery {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px;
         }
-        /* CSS cho ảnh nhỏ */
         .sub-img {
             width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover;
+            cursor: zoom-in; /* Thêm con trỏ zoom */
         }
 
-        /* --- 7. HIỆU ỨNG CUỘN (SCROLL REVEAL) --- */
+        /* --- 7. HIỆU ỨNG CUỘN --- */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- 8. HIỆU ỨNG POPUP PHÓNG TO ẢNH (MODAL) --- */
+        .image-modal {
+            display: none; /* Ẩn mặc định */
+            position: fixed;
+            z-index: 9999; /* Luôn nổi lên trên cùng */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Nền đen mờ */
+            backdrop-filter: blur(5px); /* Làm mờ cảnh nền */
+            align-items: center; 
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease; /* Hiệu ứng nảy lên */
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover { color: #F48FB1; }
 
         /* --- Responsive Điện thoại --- */
         @media (max-width: 900px) {
@@ -149,6 +183,7 @@
             .florist-layout { grid-template-columns: 1fr; }
             .header-section { padding-top: 100px; }
             .header-section h1 { font-size: 2.5rem; }
+            .close-modal { top: 10px; right: 20px; font-size: 35px; }
         }
     </style>
 </head>
@@ -225,7 +260,13 @@
         </div> 
     </div>
 
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
+
     <script>
+        // --- 1. HIỆU ỨNG CUỘN TRANG ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -238,6 +279,33 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
+
+        // --- 2. TÍNH NĂNG PHÓNG TO ẢNH ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const closeModalBtn = document.querySelector(".close-modal");
+
+        // Chọn tất cả các ảnh có thể click vào để phóng to
+        const clickableImages = document.querySelectorAll(".mini-img-box img, .wide-product-img, .sub-img");
+
+        clickableImages.forEach(img => {
+            img.addEventListener("click", function() {
+                modal.style.display = "flex"; // Hiển thị khung đen
+                modalImg.src = this.src;      // Lấy đường dẫn ảnh vừa click gán vào ảnh phóng to
+            });
+        });
+
+        // Đóng ảnh khi ấn vào nút X
+        closeModalBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        // Đóng ảnh khi click ra ngoài vùng nền đen
+        modal.addEventListener("click", function(event) {
+            if (event.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        });
     </script>
 
 </body>
